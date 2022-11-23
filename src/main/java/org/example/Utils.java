@@ -1,13 +1,18 @@
 package org.example;
 //importing org.openqa.selenium.by
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 //importing org.openqa.selenium.support.ui.ExpectedConditions
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 //importing org.openqa.selenium.support.ui.Select
 import org.openqa.selenium.support.ui.Select;
 //importing org.openqa.selenium.support.ui.WebDriverWait
 import org.openqa.selenium.support.ui.WebDriverWait;
 //importing java.text.SimpleDateFormat
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 //importing java.time.Duration
 import java.time.Duration;
@@ -30,29 +35,29 @@ public class Utils extends BasePage
         return driver.findElement(by).getText();
     }
     //importing DateFormat by creating object timeStamp
-    public String timeStamp()
+    public static String timeStamp()
     {
 
         return new SimpleDateFormat("yyyyMMddHHmmss").format(new java.util.Date());
 
     }
     // creating an object for wait action to click on the element
-    public static void waitForElementToBeClickable(By by,int duration)
+    public static void waitForElementToBeClickable(By by,int timeInSeconds)
     {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(duration));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeInSeconds));
         wait.until(ExpectedConditions.elementToBeClickable(by));
     }
     // creating an object for wait action
-    public static void waitForElementToBeVisible(By by,int duration)
+    public static void waitForElementToBeVisible(By by,int timeInSeconds)
     {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(duration));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeInSeconds));
          wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 
     }
     // creating an object for wait action
-    public static void waitForUrlTobe(String url,int duration)
+    public static void waitForUrlTobe(String url,int timeInSeconds )
     {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(duration));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeInSeconds));
         wait.until(ExpectedConditions.urlToBe(url));
 
     }
@@ -69,12 +74,24 @@ public class Utils extends BasePage
         selectValue.selectByValue(value);
     }
     // creating an object for select from drop down by index
-    public static void selectFromDropdownByIndex(By by,int value)
+    public static void selectFromDropdownByIndex(By by,int i)
     {
         Select selectValue=new Select(driver.findElement(by));
-        selectValue.selectByIndex(value);
+        selectValue.selectByIndex(i);
     }
-
+    public static void captureScreenShot(String screenShot)
+    {
+        TakesScreenshot scrShot =((TakesScreenshot) driver);
+        File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
+//Move image file to new destination
+        File DestFile=new File("src/ScreenShots"+screenShot+timeStamp()+".jpg");
+//Copy file at destination
+        try {
+            FileUtils.copyFile(SrcFile, DestFile);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
 }

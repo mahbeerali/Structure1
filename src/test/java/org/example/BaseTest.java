@@ -1,5 +1,7 @@
 package org.example;
 //importing org.testng.annotations.after method
+import org.testng.ITest;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 //importing org.testng.annotations.before method
 import org.testng.annotations.BeforeMethod;
@@ -15,8 +17,12 @@ public class BaseTest extends Utils{
     }
     //importing annotations after method to close browser
     @AfterMethod
-    public void tearDown()
+    public void tearDown(ITestResult result)
     {
+        if (!result.isSuccess())
+        {
+            captureScreenShot(result.getName());
+        }
         driverManager.closeBrowser();
     }
 
