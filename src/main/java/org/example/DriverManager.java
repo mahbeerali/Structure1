@@ -40,7 +40,7 @@ public class DriverManager extends Utils
     public void closeBrowser()
     {
         //closing all the URL pages
-        //driver.quit();
+        driver.quit();
     }
 
 }
