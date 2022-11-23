@@ -23,19 +23,5 @@ public class EmailAFriend extends Utils
 
 
 
-//    public void verifyPersonalMessageIsDisplayed()
-//
-//
-//   {
-//    String regMsg=getTextFromElement(personalMsg);
-//    Assert.assertEquals(regMsg,expectedRegMsg);
-//
-//}
-//    public void verifyUserIsRegisterToSendEmail()
-//    {
-//        //using assertion to confirm the register page is open and url is changed
-//       // Assert.assertTrue(driver.getCurrentUrl().contains(""));
-//        registerResultPage.verifyUserHasBeenRegisteredSuccessfully();
-//    }
 
 }
