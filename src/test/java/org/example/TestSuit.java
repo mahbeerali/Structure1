@@ -9,12 +9,12 @@ public class TestSuit extends BaseTest{
   RegisterPage  registerPage= new RegisterPage();
   //creating object for register result page
   RegisterResultPage registerResultPage = new RegisterResultPage();
-    // ElectronicsPage electronicsPage= new ElectronicsPage();
-//     CameraPhotoPage cameraPhotoPage= new CameraPhotoPage();
-    EmailAFriend emailAFriend= new EmailAFriend();
-    NewReleaseComment newsComments = new NewReleaseComment();
-    NewsResultPage newsResultPage = new NewsResultPage();
-    EmailAFriendResultPage emailAFriendResultPage = new EmailAFriendResultPage();
+  ElectronicsPage electronicsPage= new ElectronicsPage();
+  CameraAndPhotoPage cameraAndPhotoPage= new CameraAndPhotoPage();
+  EmailAFriend emailAFriend= new EmailAFriend();
+  NewReleaseComment newsComments = new NewReleaseComment();
+  NewsResultPage newsResultPage = new NewsResultPage();
+  EmailAFriendResultPage emailAFriendResultPage = new EmailAFriendResultPage();
 
   @Test
     public void verifyUserShouldAbleToRegisterSuccessfully()
@@ -28,19 +28,7 @@ public class TestSuit extends BaseTest{
         registerResultPage.verifyRegisteredMessageIsDisplayed();
 
     }
-  //    @Test
-//      public void verifyEachProductHasName()
-//    {
-//
-////        electronicsPage.clickONCameraPhotoPage();
-////        cameraPhotoPage.printProductTitle();
-//    }
 
-//    @Test
-//    public void toGetAllTheNamesOfProductsFromCameraPhotoPage()
-//  {    CameraPhotoPage.clickONCameraPhotoPage();
-//
-//  }
      @Test
      public void verifyCorrectCurrencyDisplayed()
      {
@@ -72,10 +60,11 @@ public class TestSuit extends BaseTest{
     }
 
     @Test
-    public void productHasName()
+    public void verifyAllProductPricesAreDisplayed()
     {
       homePage.clickOnElectronics();
-      //electronicsPage.clickOnCameraAndPhoto();
+      electronicsPage.navigateToCameraPhoto();
+      cameraAndPhotoPage.printProductNameWithList();
 
     }
     @Test

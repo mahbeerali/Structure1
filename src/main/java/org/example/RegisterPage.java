@@ -31,7 +31,6 @@ public class RegisterPage extends Utils
     // going to  register Submit Button  with its locator By id
     private By _registerSubmitButton=By.id("register-button");
     private By _continueButton =By.xpath("//a[@class=\"button-1 register-continue-button\"]");
-   // private By _continueButton =By.xpath("//a[@class=\"button-1 register-continue-button\"]");
 
     public void verifyUserIsOnRegisterPage()
     {
@@ -71,7 +70,7 @@ public class RegisterPage extends Utils
         {
         clickOnElement(_continueButton);
         }
-        //clickOnElement(By.xpath("//a[@class=\"button-1 register-continue-button\"]"));
+
 
     }
 

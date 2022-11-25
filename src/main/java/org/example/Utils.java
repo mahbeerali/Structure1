@@ -83,9 +83,9 @@ public class Utils extends BasePage
     {
         TakesScreenshot scrShot =((TakesScreenshot) driver);
         File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
-//Move image file to new destination
+    //Move image file to new destination
         File DestFile=new File("src/ScreenShots"+screenShot+timeStamp()+".jpg");
-//Copy file at destination
+    //Copy file at destination
         try {
             FileUtils.copyFile(SrcFile, DestFile);
         } catch (IOException e) {

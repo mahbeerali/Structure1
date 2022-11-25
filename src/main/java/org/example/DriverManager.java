@@ -25,15 +25,7 @@ public class DriverManager extends Utils
         driver.get("https://demo.nopcommerce.com/");
         //wait for 20 seconds
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-//        driver.findElement(By.linkText("Electrics")).click();
-//        driver.findElement(By.linkText("Camera & Photo")).click();
-//        List<WebElement> productTitle=driver.findElements(By.xpath("//h2[@class='product-title']"));
-//        System.out.println(productTitle.size());
-//        for (WebElement element:productTitle)
-//        {
-//            System.out.println(element.getText());
-//           // System.out.println(productTitle.getText());
-//        }
+
 
     }
 

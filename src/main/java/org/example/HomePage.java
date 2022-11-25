@@ -18,9 +18,11 @@ public class HomePage extends Utils
 {
     //finding a location of register button on homepage
     private  By _registerButton = By.linkText("Register");
+    // driver.findElement(By.xpath("//div[@class=\"news-items\"]/div[2]/div[3]/a")).click();
     private By _facebook = By.xpath("//li[@class=\"facebook\"]/a");
 
-    private  By  _electronics  = By.linkText("Electronics");
+//    private  By  _electronics  = By.linkText("Electronics");
+    private  By  _electronics  = By.xpath("//div[@class=\"item-grid\"]/div[1]/div/h2/a");
     private  By _appleMacBookProPicture = By.xpath("//img[@alt=\"Picture of Apple MacBook Pro 13-inch\"]");
 
     private By _customerCurrency = By.name("customerCurrency");
@@ -92,8 +94,8 @@ public class HomePage extends Utils
         {
         clickOnElement(_facebook);
         }
-    //finding a location of news button by xpath click on the news button
-       // driver.findElement(By.xpath("//div[@class=\"news-items\"]/div[2]/div[3]/a")).click();
+       //finding a location of news button by xpath click on the news button
+
         public void clickOnDetails()
         {
 
