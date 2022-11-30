@@ -45,6 +45,7 @@ public class RegisterPage extends Utils
         //using the method "click on element"
         clickOnElement(_genderFemale);
         //using the method "type text"
+        //typeText(_firstNameField,LoadProp.getProperty("FirstName"));
         typeText(_firstNameField,"Amna");
         //using the method "type text"
         typeText(_lastNameField,"Ashraf");

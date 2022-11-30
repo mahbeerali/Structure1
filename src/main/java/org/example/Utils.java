@@ -54,13 +54,21 @@ public class Utils extends BasePage
          wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 
     }
-    // creating an object for wait action
-    public static void waitForUrlTobe(String url,int timeInSeconds )
+     //creating an object for wait action
+    public static void waitForUrlTobe(String url,int timeInSeconds)
     {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeInSeconds));
         wait.until(ExpectedConditions.urlToBe(url));
 
     }
+    //Reusable method waitForUrlTOBe() for driver to wait for URL explicitly
+//    public static void waitForUrlTOBe(String url, int duration)
+//    {
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(duration));
+//        wait.until(ExpectedConditions.urlToBe(url));
+//
+//    }
+
     // creating an object for select from drop down by visible text
     public static void selectFromDropdownByVisibleText(By by,String text)
     {
@@ -84,7 +92,7 @@ public class Utils extends BasePage
         TakesScreenshot scrShot =((TakesScreenshot) driver);
         File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
     //Move image file to new destination
-        File DestFile=new File("src/ScreenShots"+screenShot+timeStamp()+".jpg");
+        File DestFile=new File("src/ScreenShots/"+screenShot+timeStamp()+".jpg");
     //Copy file at destination
         try {
             FileUtils.copyFile(SrcFile, DestFile);

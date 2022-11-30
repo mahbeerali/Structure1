@@ -5,7 +5,9 @@ import org.openqa.selenium.By;
 //importing org.testng.Assert
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
+//import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -21,15 +23,15 @@ public class HomePage extends Utils
     // driver.findElement(By.xpath("//div[@class=\"news-items\"]/div[2]/div[3]/a")).click();
     private By _facebook = By.xpath("//li[@class=\"facebook\"]/a");
 
-//    private  By  _electronics  = By.linkText("Electronics");
-    private  By  _electronics  = By.xpath("//div[@class=\"item-grid\"]/div[1]/div/h2/a");
+    private  By  _electronics  = By.linkText("Electronics");
+
     private  By _appleMacBookProPicture = By.xpath("//img[@alt=\"Picture of Apple MacBook Pro 13-inch\"]");
 
     private By _customerCurrency = By.name("customerCurrency");
     private  By _voteButton=(By.id("vote-poll-1"));
     private By _detailsButton =By.xpath("//div[@class=\"news-items\"]/div[2]/div[3]/a");
 
-//  public void waitForUrlTobe()
+//   public void waitForUrlTobe()
 //
 //  {
 //      waitForUrlTobe("https://demo.nopcommerce.com/",20);
@@ -101,4 +103,26 @@ public class HomePage extends Utils
 
             clickOnElement(_detailsButton);
         }
+
+        public void hoverActionComputer()
+        {
+    WebElement computerCategory = driver.findElement(By.xpath("//ul[contains(@class,'notmobile')]//a[contains(@href,'computers')]"));
+    String beforeHover = computerCategory.getCssValue("color");
+    System.out.println("Before Hover Color = "+beforeHover);
+
+    Actions action = new Actions((driver));
+    Action hoverOnComputers = action.moveToElement(computerCategory).build();
+    hoverOnComputers.perform();
+    String afterHover = computerCategory.getCssValue("color");
+    System.out.println("Before Hover Color = "+afterHover);
+  }
+    public void searchBar()
+    {
+      driver.findElement(By.id("small-searchterms")).sendKeys("Nike");
+      clickOnElement(By.xpath("//form[@method=\"get\"]/button[@type=\"submit\"]"));
+    }
+
 }
+
+
+

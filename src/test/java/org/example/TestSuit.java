@@ -2,7 +2,10 @@ package org.example;
 
 import org.testng.annotations.Test;
 
-public class TestSuit extends BaseTest{
+import static org.example.LoadProp.getProperty;
+
+public class TestSuit extends BaseTest
+{
   //creating object for home page
   HomePage homePage = new HomePage();
   //creating object for register page
@@ -15,6 +18,8 @@ public class TestSuit extends BaseTest{
   NewReleaseComment newsComments = new NewReleaseComment();
   NewsResultPage newsResultPage = new NewsResultPage();
   EmailAFriendResultPage emailAFriendResultPage = new EmailAFriendResultPage();
+  FacebookPage facebookPage =new FacebookPage();
+    NikePage nikePage = new NikePage();
 
   @Test
     public void verifyUserShouldAbleToRegisterSuccessfully()
@@ -58,6 +63,15 @@ public class TestSuit extends BaseTest{
     {
         homePage.clickOnFacebookLogo();
     }
+    @Test
+    public void facebook()
+    {
+        //clicking on facebook logo
+        homePage.clickOnFacebookLogo();
+        //giving handle to new tab and bring the handle back
+        facebookPage.newTab();
+    }
+
 
     @Test
     public void verifyAllProductPricesAreDisplayed()
@@ -65,6 +79,7 @@ public class TestSuit extends BaseTest{
       homePage.clickOnElectronics();
       electronicsPage.navigateToCameraPhoto();
       cameraAndPhotoPage.printProductNameWithList();
+      cameraAndPhotoPage.addToCartButtonCheck();
 
     }
     @Test
@@ -74,5 +89,22 @@ public class TestSuit extends BaseTest{
       newsComments.clickOnNewCommentButton();
       newsResultPage.verifyCommentMessageIsDisplayed();
     }
+    @Test
+    public void verifyUserAbleToHoover()
+    {
+      homePage.hoverActionComputer();
+    }
+
+    @Test
+    public void verifyUserSeeTheNikeProducts()
+    {
+     homePage.searchBar();
+     nikePage.verifySearchFunctionality();
+
+    }
+//    @Test
+//    public void readKeys() {
+//        System.out.println(getProperty("url"));
+//    }
 
 }
